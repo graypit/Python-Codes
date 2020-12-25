@@ -21,10 +21,10 @@ function RemoveRecord() {
         write-host "Success! Record was removed: $recordname.$zonename"
 }
 function UpdateRecord(){
-		$oldobj = get-dnsserverresourcerecord -name $RecordName -zonename $ZoneName -RRType A
-		$newobj = get-dnsserverresourcerecord -name $RecordName -zonename $ZoneName -RRType A
-		$newobj.recorddata.ipv4address=[System.Net.IPAddress]::parse($IpAddress)
-		Set-dnsserverresourcerecord -newinputobject $newobj -oldinputobject $oldobj -zonename $ZoneName -passthru
+	$oldobj = get-dnsserverresourcerecord -name $RecordName -zonename $ZoneName -RRType A
+	$newobj = get-dnsserverresourcerecord -name $RecordName -zonename $ZoneName -RRType A
+	$newobj.recorddata.ipv4address=[System.Net.IPAddress]::parse($IpAddress)
+	Set-dnsserverresourcerecord -newinputobject $newobj -oldinputobject $oldobj -zonename $ZoneName -passthru
     	write-host "Success! Record was updated: $recordname.$zonename redirected to $ipaddress"
 }
 Preparation

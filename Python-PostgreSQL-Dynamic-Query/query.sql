@@ -1,0 +1,1 @@
+UPDATE orders SET active = 0 , status = 'not_approved' WHERE created_at <= '{{ wheredate }}' AND created_at >= '{{ fromdate }}' AND status != 'rejected' AND status != 'confirmed' AND client_id = 1
